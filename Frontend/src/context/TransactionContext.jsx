@@ -94,7 +94,7 @@ export const TransactionProvider = ({children}) => {
 
 const sendTransaction = async ()=>{
         try{
-            if(!ethereum) return toast.warn("Please Install Metamask")
+            if(!ethereum) return toast.warn("Install Metamask to send transaction")
             
             const {addressTo,amount,keyword,message} = formData
 

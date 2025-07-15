@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import {SiEthereum} from 'react-icons/si'
 import {BsInfoCircle} from 'react-icons/bs'
+import {toast} from 'react-toastify'
 
 import Loader from './Loader'
 import { TransactionContext } from '../context/TransactionContext'
@@ -33,7 +34,7 @@ const Welcome = () => {
 
     e.preventDefault()
 
-    if(!addressTo || !amount || !keyword || !message) return 
+    if(!addressTo || !amount || !keyword || !message) return toast.warning("Please fill all the fields")
 
     sendTransaction()
   }
