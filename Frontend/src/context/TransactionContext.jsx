@@ -85,7 +85,7 @@ export const TransactionProvider = ({children}) => {
             const account = await ethereum.request({method:"eth_requestAccounts"})
 
         setCurrentAccount(account[0])
-        toast.success("Wallet Connected")
+        toast.success("Wallet Connected Successfully")
         }catch(error){
             toast.error("Failed to connect wallet")
             throw new Error("No ethereum object")

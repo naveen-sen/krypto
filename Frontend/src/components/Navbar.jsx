@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {HiMenuAlt4} from 'react-icons/hi'
 import {AiOutlineClose} from 'react-icons/ai'
+import { TransactionContext } from '../context/TransactionContext';
 
 
 const NavItems = ({title,classProps})=>{
@@ -11,6 +12,7 @@ const NavItems = ({title,classProps})=>{
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const {connectWallet} = useContext(TransactionContext)
   return (
     <nav className='w-full flex md:justify-center justify-between items-center p-4'>
       <div className='md:flex-[0.5] flex-initial justify-center items-center'>
@@ -21,9 +23,9 @@ const Navbar = () => {
           <NavItems key={item + index} title={item} />
         ))}
         <li>
-          <a href='#' className='text-white bg-[#2952e3] py-2 px-7 mx-4 rounded-full hover:bg-[#2546bd] cursor-pointer'>
+          <button onClick={connectWallet} className='text-white bg-[#2952e3] py-2 px-7 mx-4 rounded-full hover:bg-[#2546bd] cursor-pointer'>
             Login
-          </a>
+          </button>
         </li>
       </ul>
 
@@ -37,9 +39,9 @@ const Navbar = () => {
               <NavItems key={item + index} title={item} classProps='my-2 text-white' />
             ))}
             <li>
-              <a href='#' className='text-white bg-[#2952e3] py-2 ml-[-2px] px-7 mx-4 rounded-full hover:bg-[#2546bd] cursor-pointer'>
+              <button onClick={connectWallet} className='text-white bg-[#2952e3] py-2 ml-[-2px] px-7 mx-4 rounded-full hover:bg-[#2546bd] cursor-pointer'>
                 Login 
-              </a>
+              </button>
             </li>
           </ul>
         )}
